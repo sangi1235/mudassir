@@ -1,8 +1,44 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+const AdsterraBanner = () => {
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (bannerRef.current && !bannerRef.current.firstChild) {
+      const conf = document.createElement('script');
+      const script = document.createElement('script');
+      const atOptions = {
+        key: '10d888f2e5843d081768747352c65cdc',
+        format: 'iframe',
+        height: 90,
+        width: 728,
+        params: {},
+      };
+      script.type = 'text/javascript';
+      script.src = '//www.highperformanceformat.com/10d888f2e5843d081768747352c65cdc/invoke.js';
+      script.async = true;
+      conf.innerHTML = `atOptions = ${JSON.stringify(atOptions)};`;
+      bannerRef.current.append(conf);
+      bannerRef.current.append(script);
+
+      return () => {
+        if (bannerRef.current) {
+          bannerRef.current.innerHTML = '';
+        }
+      };
+    }
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center my-8">
+      <div ref={bannerRef} style={{ width: '728px', height: '90px' }} />
+    </div>
+  );
+};
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,6 +89,9 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Adsterra Banner */}
+      <AdsterraBanner />
 
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
