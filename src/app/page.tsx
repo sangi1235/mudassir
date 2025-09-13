@@ -60,7 +60,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">About Me</h2>
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3">
-              <Image src="/profile.jpg" alt="Mudassir Hussain" width={300} height={300} className="rounded-full shadow-lg" />
+              <Image src="/profile.png" alt="Mudassir Hussain" width={300} height={300} className="rounded-full shadow-lg" />
             </div>
             <div className="md:w-2/3">
               <p className="text-lg text-gray-700 leading-relaxed">
