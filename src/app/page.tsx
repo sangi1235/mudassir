@@ -27,8 +27,8 @@ export default function Home() {
               <Image
                 src="/profile.png"
                 alt="Mudassir Hussain"
-                width={160}
-                height={160}
+                width={180}
+                height={180}
                 className="relative rounded-full shadow-lg w-full h-full object-cover border-4 border-white"
               />
             </div>
